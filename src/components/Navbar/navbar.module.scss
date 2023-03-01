@@ -1,0 +1,12 @@
+.nav {
+	@apply flex flex-row justify-between items-center h-[70px] py-4 px-5 bg-[#fcfcfc] shadow-md rounded-b-lg;
+
+	&__logo {
+		@apply font-bold text-lg tracking-wider;
+	}
+
+	&__btn {
+		@apply inline-block align-top cursor-pointer text-white text-base font-semibold py-2 px-4 rounded-md bg-blue-500
+    hover:bg-blue-400 active:bg-blue-600 transition-colors;
+	}
+}
