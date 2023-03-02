@@ -1,0 +1,35 @@
+.root {
+	@apply flex flex-col items-center gap-y-5 w-[390px] mx-auto;
+
+	.title {
+		@apply text-xl font-bold uppercase leading-4;
+	}
+
+	.form {
+		@apply flex flex-col gap-y-3 w-full;
+
+		&__input {
+			@apply outline-none bg-inherit py-3 px-4 border-2 border-gray-400 rounded-md focus:border-blue-500;
+
+			&_err {
+				@apply border-rose-500 outline-none bg-inherit py-3 px-4 border-2  rounded-md focus:border-blue-500;
+			}
+		}
+
+		&__err {
+			@apply text-rose-500;
+		}
+
+		&__btn {
+			@apply inline-block align-top bg-sky-500/75 text-white text-lg uppercase font-semibold rounded-md py-3 px-5
+      hover:bg-sky-500/50 active:bg-sky-500 disabled:bg-sky-500/50 cursor-pointer;
+		}
+
+		&__text {
+			@apply font-normal;
+			span {
+				@apply text-blue-400 cursor-pointer ml-2 font-semibold;
+			}
+		}
+	}
+}
