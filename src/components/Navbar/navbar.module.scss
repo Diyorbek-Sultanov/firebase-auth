@@ -7,6 +7,11 @@
 
 	&__btn {
 		@apply inline-block align-top cursor-pointer text-white text-base font-semibold py-2 px-4 rounded-md bg-blue-500
-    hover:bg-blue-400 active:bg-blue-600 transition-colors;
+    hover:bg-blue-400 active:bg-blue-600 transition-colors mr-3;
+	}
+
+	&__btn_danger {
+		@apply inline-block align-top cursor-pointer text-white text-base font-semibold py-2 px-4 rounded-md bg-rose-500
+    hover:bg-rose-400 active:bg-rose-600 transition-colors mr-3;
 	}
 }

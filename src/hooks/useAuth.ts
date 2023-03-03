@@ -1,10 +1,12 @@
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
+	signOut,
 	User,
 } from 'firebase/auth'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-hot-toast'
 
 import { auth } from '../firebase'
 
@@ -23,8 +25,10 @@ const useAuth = () => {
 			)
 			setUser(user)
 			navigate('/')
+			toast.success('Register success!')
 		} catch (error) {
-			console.log(error)
+			const err = error as Error
+			toast.error(err.message)
 		} finally {
 			setIsLoading(false)
 		}
@@ -36,16 +40,28 @@ const useAuth = () => {
 			const { user } = await signInWithEmailAndPassword(auth, email, password)
 			setUser(user)
 			navigate('/')
+			toast.success('Login success!')
 		} catch (error) {
-			console.log(error)
+			const err = error as Error
+			toast.error(err.message)
 		} finally {
 			setIsLoading(false)
 		}
 	}
 
-	const logOut = async () => {}
+	const logOut = async () => {
+		signOut(auth)
+			.then(() => {
+				setUser({} as User)
+				navigate('/auth')
+			})
+			.catch(error => {
+				const err = error as Error
+				toast.error(err.message)
+			})
+	}
 
-	return { signIn, signUp, logOut, isLoading }
+	return { signIn, signUp, logOut, isLoading, user, setUser }
 }
 
 export default useAuth

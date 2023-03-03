@@ -40,7 +40,6 @@ const Auth: FC = () => {
 	return (
 		<div className={styles.root}>
 			<h1 className={styles.title}>
-				{' '}
 				{auth === 'signin' ? 'Sign in' : 'Sign up'}
 			</h1>
 			<form className={styles.form} onSubmit={handleSubmit(onSubmitHanler)}>
