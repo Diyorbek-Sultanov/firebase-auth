@@ -8,14 +8,13 @@ import { IAuth } from '../interfaces/auth.interface'
 
 export const AuthContext = createContext<IAuth>({
 	user: {} as User,
-	isLoading: false,
 })
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {
 	const navigate = useNavigate()
-	const { isLoading, user, setUser } = useAuth()
+	const { user, setUser } = useAuth()
 
-	const value = useMemo(() => ({ isLoading, user }), [isLoading, user])
+	const value = useMemo(() => ({ user }), [user])
 
 	useEffect(() => {
 		onAuthStateChanged(auth, user => {
